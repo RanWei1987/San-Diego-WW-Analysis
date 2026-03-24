@@ -1,5 +1,4 @@
 @echo off
-REM Works with Docker image: condaforge/miniforge3:23.11.0-0
 
 pushd .
 
@@ -15,24 +14,26 @@ REM Change directory to prefix
 
 echo Started
 
-
- 
-call terraTools\Scripts\activate
-
-
-python "packages\terra-tools-master\scripts\export_large_tsv\export_large_tsv.py" --project cdph-terrabio-taborda-manual --workspace "%terra_workspace%" --entity_type "%terra_table%" --tsv %terra_table%.tsv"
-
-call deactivate
-call conda activate wastewater
-
-move "%terra_table%.tsv" "%prefix%"
-
 cd /d "%prefix%"
 
-python cloud_download.py "%terra_table%.tsv" "%dump_folder%" "freyja_demixed"
-dir
-echo Finished
+python "..\terra-tools-master\scripts\export_large_tsv\export_large_tsv.py" --project cdph-terrabio-taborda-manual --workspace "%terra_workspace%" --entity_type "%terra_table%" --tsv %terra_table%.tsv"
 
+echo "FIle downloaded, moving to dump folder"
+copy "%terra_table%.tsv" "%dump_folder%"
+
+
+dir "%dump_folder%"
+echo Current directory is %CD%
+if not exist "%dump_folder%\%terra_table%.tsv" (
+    echo File not found: "%dump_folder%\%terra_table%.tsv"
+    goto end
+) else (
+    echo File exists: "%dump_folder%\%terra_table%.tsv"
+)
+python cloud_download.py "%dump_folder%\%terra_table%.tsv" "%dump_folder%" "freyja_demixed"
+
+echo Finished
+goto end
 setlocal enabledelayedexpansion
 
 for %%F in (%dump_folder%\*demixed.tsv) do (
@@ -114,7 +115,7 @@ REM )
 
 REM Aggregate outputs, use a wrapper to call freyja aggregate in win64
 REM freyja aggregate outputs\ --output agg_outputs.tsv
-python aggregate_wrapper.py outputs/ agg_outputs.tsv
+python aggregate_wrapper.py ./outputs/ agg_outputs.tsv
 echo Finished
 
 
@@ -123,4 +124,4 @@ python polish_outputs_SD.py
 echo FinallyFinished
 REM python calc_relgrowthrates.py
 popd
-call conda deactivate
+:end
