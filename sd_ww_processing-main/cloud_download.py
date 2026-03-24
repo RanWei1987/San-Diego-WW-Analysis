@@ -15,7 +15,7 @@ if os.path.exists(dump_dir) and os.path.isdir(dump_dir):
     print("Folder exists")
     folder = Path(dump_dir)
     for f in folder.iterdir():
-        if f.is_file():
+        if f.is_file() and f.name != os.path.basename(table_file):
             f.unlink() 
 else:
     os.makedirs(dump_dir)
