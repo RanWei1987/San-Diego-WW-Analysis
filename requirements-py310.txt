@@ -1,0 +1,22 @@
+# Firecloud
+firecloud==0.16.37
+
+# Google authentication
+google-auth-httplib2==0.1.0
+gcs-oauth2-boto-plugin==2.5
+
+# Google API client and cloud libraries
+google-api-python-client==2.88.0
+google-cloud-storage==3.10.1
+google-cloud-bigquery==3.40.1
+
+# Data analysis
+numpy==1.24.4
+pandas==1.5.3
+tqdm==4.65.0
+PyYAML==6.0.3
+click==8.3.1
+matplotlib==3.10.8
+seaborn==0.13.2
+plotly==6.6.0
+scipy==1.13.1
