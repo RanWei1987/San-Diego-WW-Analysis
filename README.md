@@ -21,7 +21,7 @@ This module is built upon the following packages:
 ### Prerequisites
 
 - Install the Google Cloud SDK: https://cloud.google.com/sdk/downloads  
-- Set up Application Default Credentials `gcloud auth application-default login`
+- Set up Application Default Credentials `gcloud auth application-default login`  
 ### Setup and Execution
 1. Download or clone the repository to your local machine.
 2. Create a Python virtual environment (Python 3.9 or 3.10 recommended, use Python3.10 as example):
@@ -41,7 +41,8 @@ sd_ww_processing-main\SanDiegoWW.bat TERRA_WORKSPACE TERRA_TABLE RUN_FOLDER DUMP
 `TERRA_WORKSPACE`: The target Terra workspace where the Freyja analysis run was completed  
 `TERRA_TABLE`: The data table name within the Terra workspace  
 `RUN_FOLDER`: Path to the sd_ww_processing-main directory containing all scripts  
-`DUMP_FOLDER`: Directory where downloaded intermediate files will be stored. You can use `RUN_FOLDER/../Dump`  
+`DUMP_FOLDER`: Directory where downloaded intermediate files will be stored. This directory will be automatically created if it does not exit  
+Note: if the execution fails due to google cloud crash during SSL certificate verification, you can try to disable the verification procedure: `gcloud config set auth/disable_ssl_validation  True`  
 ### Processing and Output
 The module performs the following operations:  
 1. Downloads and extracts Freyja analysis results for each sequencing sample  
