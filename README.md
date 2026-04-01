@@ -24,9 +24,10 @@ This module is built upon the following packages:
 - Set up Application Default Credentials `gcloud auth application-default login`  
 ### Setup and Execution
 1. Download or clone the repository to your local machine.
-2. Create a Python virtual environment (Python 3.9 or 3.10 recommended, use Python3.10 as example):
+2. Create a Python virtual environment (Python 3.9 or 3.10 recommended, use Python3.10 as example) and activate it:
 ```
 python3.10 -m venv wastewater
+wastewater\Scripts\activate
 ```
 Note: Conda is not recommended, as it may not provide all required dependencies.
 
