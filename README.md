@@ -29,12 +29,11 @@ This module is built upon the following packages:
 python3.10 -m venv wastewater
 wastewater\Scripts\activate
 ```
-Note: Conda is not recommended, as it may not provide all required dependencies.
-
 3. Install dependencies:
 ```
 pip install -r requirements-py310.txt
 ```
+Note: Conda is not recommended, as it may not provide all required dependencies.
 4. Run the pipeline:
 ```
 sd_ww_processing-main\SanDiegoWW.bat TERRA_WORKSPACE TERRA_TABLE RUN_FOLDER DUMP_FOLDER
