@@ -34,6 +34,7 @@ wastewater\Scripts\activate
 pip install -r requirements-py310.txt
 ```
 Note: Conda is not recommended, as it may not provide all required dependencies.  
+
 4. Run the pipeline:
 ```
 sd_ww_processing-main\SanDiegoWW.bat TERRA_WORKSPACE TERRA_TABLE RUN_FOLDER DUMP_FOLDER
