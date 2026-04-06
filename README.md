@@ -21,7 +21,11 @@ This module is built upon the following packages:
 ### Prerequisites
 
 - Install the Google Cloud SDK: https://cloud.google.com/sdk/downloads  
-- Set up Application Default Credentials `gcloud auth application-default login`  
+- Set up Application Default Credentials
+```
+gcloud auth login # When use the script for the first time or has not used for long time  
+gcloud auth application-default login
+```  
 ### Setup and Execution
 1. Download or clone the repository to your local machine.
 2. Create a Python virtual environment (Python 3.9 or 3.10 recommended, use Python3.10 as example) and activate it:
