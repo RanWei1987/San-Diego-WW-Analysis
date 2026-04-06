@@ -13,6 +13,7 @@ REM Get the table from Terra
 REM Change directory to prefix
 
 echo Started
+if not exist "%dump_folder%" mkdir "%dump_folder%"
 echo "Depleting all files in the dump folder"
 del /q /s "%dump_folder%\*"
 
@@ -38,7 +39,7 @@ echo Finished
 
 setlocal enabledelayedexpansion
 
-for %%F in (%dump_folder%\*demixed.tsv) do (
+for /f "delims=" %%F in ('dir /b "%dump_folder%\*demixed.tsv" 2^>nul') do (
     rem --- Check if filename contains Neg or Pos ---
     echo %%~nxF | findstr /i "Neg Pos" >nul
     set "err=!errorlevel!"
