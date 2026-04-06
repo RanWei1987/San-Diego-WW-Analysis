@@ -33,7 +33,7 @@ if not exist "%dump_folder%\%terra_table%.tsv" (
 python cloud_download.py "%dump_folder%\%terra_table%.tsv" "%dump_folder%" "freyja_demixed"
 
 echo Finished
-goto end
+
 setlocal enabledelayedexpansion
 
 for %%F in (%dump_folder%\*demixed.tsv) do (
