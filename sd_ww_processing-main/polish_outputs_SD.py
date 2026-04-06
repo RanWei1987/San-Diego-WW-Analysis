@@ -1,6 +1,6 @@
 import sys
 # replace with freyja path
-sys.path.append(r"C:\Users\E107484\Documents\projects\Freyja")
+sys.path.append(r"..\Freyja")
 from freyja.utils import prepLineageDict
 import copy
 import pandas as pd
