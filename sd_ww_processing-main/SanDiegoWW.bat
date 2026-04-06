@@ -21,7 +21,7 @@ cd /d "%prefix%"
 
 python "..\terra-tools-master\scripts\export_large_tsv\export_large_tsv.py" --project cdph-terrabio-taborda-manual --workspace "%terra_workspace%" --entity_type "%terra_table%" --tsv %terra_table%.tsv"
 
-echo "FIle downloaded, moving to dump folder"
+echo "File downloaded, moving to dump folder"
 copy "%terra_table%.tsv" "%dump_folder%"
 
 
@@ -50,7 +50,7 @@ for /f "delims=" %%F in ('dir /b "%dump_folder%\*demixed.tsv" 2^>nul') do (
         echo %%~nxF | findstr /i "SC2" >nul
         set "err2=!errorlevel!"
         if !err2! EQU 0 (
-            copy "%%F" ".\outputs\"
+            copy "%dump_folder%\%%F" ".\outputs\"
             echo Copied: %%~nxF
         ) else (
             echo Skipping ^(not SC2^): %%~nxF
