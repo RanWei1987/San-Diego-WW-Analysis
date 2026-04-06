@@ -124,4 +124,3 @@ python polish_outputs_SD.py
 echo FinallyFinished
 REM python calc_relgrowthrates.py
 popd
-:end
