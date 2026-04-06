@@ -1,5 +1,5 @@
 import sys
-sys.path.append(r"C:\Users\E107484\Documents\projects\Freyja")
+sys.path.append(r"..\Freyja")
 from freyja._cli import aggregate
 
 if len(sys.argv) != 3:
