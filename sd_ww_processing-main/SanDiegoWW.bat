@@ -13,6 +13,8 @@ REM Get the table from Terra
 REM Change directory to prefix
 
 echo Started
+echo "Depleting all files in the dump folder"
+del /q /s "%dump_folder%\*"
 
 cd /d "%prefix%"
 
