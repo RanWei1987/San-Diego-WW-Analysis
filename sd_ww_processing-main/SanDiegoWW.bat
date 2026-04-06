@@ -121,9 +121,9 @@ REM freyja aggregate outputs\ --output agg_outputs.tsv
 python aggregate_wrapper.py ./outputs/ agg_outputs.tsv
 echo Finished
 
-
 REM Run Python scripts
 python polish_outputs_SD.py
 echo FinallyFinished
 REM python calc_relgrowthrates.py
 popd
+:end
